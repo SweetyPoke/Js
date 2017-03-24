@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Zółwik</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <script>
+  function x(){
+      var x = parseFloat(document.getElementById('x').value);
+    x=x+1
+    document.getElementById('x').value=x;
+  }
+    function x1(){
+      var x = parseFloat(document.getElementById('x').value);
+    x=x-1
+    document.getElementById('x').value=x;
+    }
+    function y(){
+      var y = parseFloat(document.getElementById('y').value);
+      y=y+1
+      document.getElementById('y').value=y;
+    }
+    function y1(){
+      var y = parseFloat(document.getElementById('y').value);
+      y=y-1
+      document.getElementById('y').value=y;
+      }
+    function z(){
+      if (document.getElementById('z').value == "Opuszczony"){;
+      document.getElementById('z').value = "Podniesiony";
+    }
+      else document.getElementById('z').value = "Opuszczony";
+  }
+  </script>
+  </head>
+  <body>
+    <div>
+      x <input type="text" value="0" id="x" size="1">
+      <button onclick="x()">Dodaj x</button>
+      <button onclick="x1()">Odejmij x</button>
+      y <input type="text" value="0" id="y" size="1">
+      <button onclick="y()">Dodaj y</button>
+      <button onclick="y1()">Odejmij y</button>
+      z <input type="text" value="Opuszczony" id="z"></button>
+      <button onclick="z()">Zmien</button>
+    </div>
+  </body>
+  </html>
