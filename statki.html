@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/statki.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+ <![endif]-->
+</head>
+
+<body>
+  <div id="plansza1" style="width:400px; height: 400px;"></div>
+  <div id="plansza2" style="width:400px; height: 400px;"></div>
+  <script>
+    var player1board = [];
+    var player2board = [];
+    for (var i = 0; i < 10; i++) {
+     player1board[i] = [];
+     player2board[i] = [];
+     for (var j = 0; j < 10; j++) {
+       player1board[i][j] = Math.floor(Math.random()*2);
+       player2board[i][j] = Math.floor(Math.random()*2);
+     }
+   }
+   rysuj();
+
+
+   $('#plansza1 > div').click(
+      function() {
+        var x = $(this).attr('data-x');
+        var y = $(this).attr('data-y');
+        //alert(typeof(player1board[x][y]));
+
+        if(player1board[x][y] == 1) player1board[x][y] = -1;
+        if(player1board[x][y]) == 0 player1board[x][y] = -2;
+        if(player1board[x][y] == -2 || player1board[x][y] == -1)
+        $('div[data-x="'+x+'"][data-y="'+y+'"]').html(player1board[x][y]);
+      }
+    );
+    
+    function rysuj(){
+      $('#plansza1').html("");
+      for (var i = 0; i < 10; i++) {
+       for (var j = 0; j < 10; j++) {
+         $('#plansza1').append('<div style="width:10%; float: left;" data-x="'
+                               +i+'"data-y="'+j+'">X</div>');
+        }
+        $('#plansza1').append('<div style="clear:both;"></div>');
+      }
+    }
+  </script>
+  <script src="statki.js"></script>
+</body>
+</html>
